@@ -31,6 +31,21 @@ public class PlayerController : MonoBehaviour
         controller=GetComponent<CharacterController>();
         InitUDP(); 
     }
+     void OnDisable()
+    {
+        StopUDP();
+    }
+     public void StopUDP()
+    {
+        if (client != null)
+        {
+            client.Close();
+        }
+        if (receiveThread != null && receiveThread.IsAlive)
+        {
+            receiveThread.Abort();
+        }
+    }
     // 3. InitUDP
 	public void InitUDP()
 	{
