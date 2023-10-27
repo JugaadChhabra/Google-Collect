@@ -13,7 +13,7 @@ public class SwipeManager : MonoBehaviour
     {
         tap = swipeDown = swipeUp = swipeLeft = swipeRight = false;
         #region Standalone Inputs
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !IsPointerOverUIObject())
         {
             tap = true;
             isDraging = true;
@@ -54,7 +54,7 @@ public class SwipeManager : MonoBehaviour
         }
 
         //Did we cross the distance?
-        if (swipeDelta.magnitude > 60)
+        if (swipeDelta.magnitude > 60 && !IsPointerOverUIObject())
         {
             //Which direction?
             float x = swipeDelta.x;
