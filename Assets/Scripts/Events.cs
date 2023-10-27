@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class Events : MonoBehaviour
 {
    public PlayerController pc;
+   public GameObject SettingsUI;
    public void ReplayGame()
    {
       Debug.Log("Replay is called");
@@ -18,5 +19,11 @@ public class Events : MonoBehaviour
       Debug.Log("Quit is called");
     Application .Quit();
     
+   }
+
+   public void SettingsMenu()
+   {
+      SettingsUI.SetActive(true);
+      print("enter settings menu");
    }
 }

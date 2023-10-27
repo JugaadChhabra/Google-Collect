@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class SwipeManager : MonoBehaviour
 {
-     public static bool tap, swipeLeft, swipeRight, swipeUp, swipeDown;
+    public static bool tap, swipeLeft, swipeRight, swipeUp, swipeDown;
     private bool isDraging = false;
     private Vector2 startTouch, swipeDelta;
 
@@ -26,7 +27,7 @@ public class SwipeManager : MonoBehaviour
         #endregion
 
         #region Mobile Input
-        if (Input.touches.Length > 0)
+        if (Input.touches.Length > 0 && !IsPointerOverUIObject())
         {
             if (Input.touches[0].phase == TouchPhase.Began)
             {
@@ -85,4 +86,14 @@ public class SwipeManager : MonoBehaviour
         startTouch = swipeDelta = Vector2.zero;
         isDraging = false;
     }
+
+    private bool IsPointerOverUIObject()
+    {
+        PointerEventData eventDataCurrentPosition = new PointerEventData(EventSystem.current);
+        eventDataCurrentPosition.position = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+        List<RaycastResult> results = new List<RaycastResult>();
+        EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
+        return results.Count > 0;
+    }
+
 }

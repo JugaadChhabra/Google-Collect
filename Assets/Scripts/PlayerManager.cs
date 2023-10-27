@@ -16,7 +16,7 @@ public class PlayerManager : MonoBehaviour
     // public Text coinsText;
     public static int numberofCoins;
     // public Text timerText;
-    [SerializeField] float duration, currentTime;
+    [SerializeField] public float duration, currentTime;
 
     void Start()
     {
@@ -25,9 +25,7 @@ public class PlayerManager : MonoBehaviour
         isGameStarted = false;
         numberofCoins = 0;
         currentTime=duration;
-        TimeLeft.text=currentTime.ToString();
-        
-        
+        // TimeLeft.text=currentTime.ToString();
     }
     IEnumerator TimeIEn(){
         while(currentTime>=0)
