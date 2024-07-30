@@ -15,6 +15,7 @@ public class PlayerManager : MonoBehaviour
     public TextMeshProUGUI TimeLeft;
     // public Text coinsText;
     public static int numberofCoins;
+    public Animator playerAnimator;
     // public Text timerText;
     [SerializeField] public float duration, currentTime;
 
@@ -47,13 +48,24 @@ public class PlayerManager : MonoBehaviour
         coinCount.text = numberofCoins.ToString();
 
         // Check if AR scene is loaded and if the user taps the screen
-        if (!isGameStarted && SwipeManager.tap)
-        {
-            isGameStarted = true;
-            Destroy(startingText);
-            coinCount.gameObject.SetActive(true);
-            StartCoroutine(TimeIEn());
-        }
+        // if (!isGameStarted && SwipeManager.tap)
+        // {
+        //     playerAnimator.SetTrigger("Start");
+        //     isGameStarted = true;
+        //     Destroy(startingText);
+        //     coinCount.gameObject.SetActive(true);
+        //     StartCoroutine(TimeIEn());
+
+        // }
+    }
+
+    public void StartGame()
+    {
+        playerAnimator.SetTrigger("Start");
+        isGameStarted = true;
+        Destroy(startingText);
+        coinCount.gameObject.SetActive(true);
+        StartCoroutine(TimeIEn());
     }
 
  
