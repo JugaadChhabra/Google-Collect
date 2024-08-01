@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        port = 5095;
+        port = 5000;
         controller=GetComponent<CharacterController>();
         InitUDP(); 
     }
@@ -58,9 +58,11 @@ public class PlayerController : MonoBehaviour
 	}
     private void ReceiveData()
 	{
+        print("inside recieve function");
 		client = new UdpClient (port); //1
 		while (true) //2
 		{
+            print("inside true");
 			try
 			{
 				IPEndPoint anyIP = new IPEndPoint(IPAddress.Parse("0.0.0.0"), port); //3
@@ -69,6 +71,7 @@ public class PlayerController : MonoBehaviour
 				string text = Encoding.UTF8.GetString(data); //5
 				print (">> " + text);
 
+                print(text);
 				
                 Debug.Log(text);
                 if(text=="Center"){

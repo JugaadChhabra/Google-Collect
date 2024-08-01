@@ -15,4 +15,5 @@ EditorBuildSettings:
     com.unity.mars-ar-foundation-providers.xr_subsystem_settings: {fileID: 11400000, guid: 1b69c69296dbd4e74b55b1c3a2190c7c, type: 2}
     com.unity.xr.arfoundation.simulation_settings: {fileID: 11400000, guid: 48092f54b74204b0782cc03f2795c513, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: dd7ce22c044a44af88d9271ee7f29547, type: 2}
+    com.unity.xr.openxr.settings4: {fileID: 11400000, guid: c845121b23eb62343be4e844c85e2c47, type: 2}
     xr.sdk.mock-hmd.settings: {fileID: 11400000, guid: 361782c7ebd0f4a8f95190b7baaf576a, type: 2}
